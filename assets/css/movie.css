@@ -1,6 +1,6 @@
 body {
-  background-image: url("https://www.giraldacenter.com/wp-content/uploads/2016/12/161764433_hi-res.jpg");
-    background-size: cover;;
+  background-image:rgba(118, 153, 194, 0.6);
+    background-size: cover;
 }
 .search-form {
   float: right;
