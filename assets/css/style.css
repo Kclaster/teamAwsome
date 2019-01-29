@@ -2,75 +2,89 @@ body {
     background-image:url("https://www.giraldacenter.com/wp-content/uploads/2016/12/161764433_hi-res.jpg");
     background-size: cover;
   }
-#buttons{
+#forms{
   
-    margin:20px auto;
+   margin:20px auto;
    text-align: center;
-   
+   width: 40%;
+   float: left;
+   padding-block-start: 10px;
+   margin: 40px;
+   padding-left: 45px;
+
 }
-  .btn-movies
+.col-form-label{
+  display: inline-block;
+  padding: 0px;
+ color: white;
+}
+  .btn-primary
   {
     font-size:20px;
     width:200px; 
     height:50px;
-    border-color:rgba(6, 30, 238, 0.6);
-    color: rgba(6, 30, 238, 0.6);
-    background: none;
+    color:white;
+    background: rgba(177, 7, 7, 0.945);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   }
-  .btn-musics{
+
+   
+ h2 {
+  width:98%;
+  color:blue;
+  text-align:center;
+  padding:1%;
+  background:#ededee;
+}
+header{
+  
+  margin-right: 45%;
+  margin-top: 3%;
+}
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+  color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 90px;
+}
+.navbar sticky-top navbar-light bg-light {
+  display: inline;
+  justify-content: space-between;
+  background-color: bisque;
+  text-align: center;
+}
+.footer {
+  padding: 30px 0;
+  clear: both;
+  font-size: 12px;
+  color: rgb(233, 212, 92);
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 50%;
+}
+  /* .btn-musics{
     font-size:20px;
     width:200px; 
     height:50px;
     border-color:rgb(238, 15, 15); 
     color: rgb(238, 15, 15);
     background: none;
-  }
+  } */
  /* .popup-container{
     background-color: #ededee;
     padding:2%;
     overflow:hidden;
     display:none;
   } */
- h2{
-    width:98%;
-    color:blue;
-    text-align:center;
-    padding:1%;
-    background:#ededee;
- }
-  header{
-    
-    margin-right: 45%;
-    margin-top: 3%;
-  }
-  .header img {
-    float: left;
-    width: 100px;
-    height: 100px;
-    background: #555;
-  }
-  
-  .header h1 {
-    position: relative;
-    top: 18px;
-    left: 10px;
-    color: white;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: 90px;
-  }
-  .navbar sticky-top navbar-light bg-light {
-    display: inline;
-    justify-content: space-between;
-    background-color: bisque;
-    text-align: center;
-  }
-  .footer {
-    padding: 30px 0;
-    clear: both;
-    font-size: 12px;
-    color: rgb(233, 212, 92);
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 50%;
-  }
+
+
  
