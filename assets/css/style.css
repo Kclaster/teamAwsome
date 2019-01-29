@@ -71,20 +71,30 @@ header{
   margin-bottom: 0px;
   margin-top: 50%;
 }
-  /* .btn-musics{
-    font-size:20px;
-    width:200px; 
-    height:50px;
-    border-color:rgb(238, 15, 15); 
-    color: rgb(238, 15, 15);
-    background: none;
-  } */
- /* .popup-container{
-    background-color: #ededee;
-    padding:2%;
-    overflow:hidden;
-    display:none;
-  } */
 
+ .container{
+    background-color: #ededee;
+    margin-top: 200px;
+    padding:25%;
+    padding-bottom: 200px;
+    width: 10px;
+    overflow:hidden;
+    float: right;
+  }
+.row-container{
+  background-color:#ededee;
+  width:30%;
+  margin-top: 15px;
+  margin-left: 20px;
+  padding:60px;
+}
+.row2-container{
+  background-color:#ededee;
+  width:97%;
+  margin-top: 15px;
+  margin-left: 20px;
+  padding:60px;
+  
+}
 
  
