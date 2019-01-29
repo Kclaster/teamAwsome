@@ -15,6 +15,7 @@ body {
     height:50px;
     border-color:rgba(6, 30, 238, 0.6);
     color: rgba(6, 30, 238, 0.6);
+    background: none;
   }
   .btn-musics{
     font-size:20px;
@@ -22,6 +23,7 @@ body {
     height:50px;
     border-color:rgb(238, 15, 15); 
     color: rgb(238, 15, 15);
+    background: none;
   }
  /* .popup-container{
     background-color: #ededee;
