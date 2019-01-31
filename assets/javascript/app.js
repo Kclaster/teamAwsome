@@ -1,21 +1,20 @@
-
-$('#form').on('submit', function() {
+$('#forms').on('submit', function() {
     event.preventDefault();
     getmoviePoster(getValue());
     getYoutubeTrailer(getValue());
     getYoutubeReview(getValue());
-});
-
-
-function getValue() {
-    if ($('#input').val() !== 'Enter Movie Title') {
-      var movieTitle = $('#input').val();  
+ });
+ 
+ 
+ function getValue() {
+    if ($('#inputMovie').val() !== 'Enter Movie Title') {
+      var movieTitle = $('#inputMovie').val();
     }
     return movieTitle
-}
-
-
-function getmoviePoster(movieTitle) {
+ }
+ 
+ 
+ function getmoviePoster(movieTitle) {
     if (movieTitle !== undefined) {
     $.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=fcc96c64`,
     function(response) {
@@ -23,24 +22,24 @@ function getmoviePoster(movieTitle) {
         $('#theImg').attr('src', response.Poster)
     })
     };
-}
-
-
-
-var posterSource = getmoviePoster(getValue());
-
-
-/// The following are for youtube api
-var apiKey = 'AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8'
-
-////////////////////////////////////////////////////
-//following are for youtube movie trailers
-function getYoutubeTrailer(movieTitle) {
+ }
+ 
+ 
+ 
+ var posterSource = getmoviePoster(getValue());
+ 
+ 
+ /// The following are for youtube api
+ var apiKey = 'AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8';
+ 
+ ////////////////////////////////////////////////////
+ //following are for youtube movie trailers
+ function getYoutubeTrailer(movieTitle) {
     if (movieTitle !== undefined) {
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
     function(response) {
-        console.log(response.items)
-        var idArray = []
+        console.log(response.items);
+        var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
         });
@@ -50,25 +49,25 @@ function getYoutubeTrailer(movieTitle) {
              $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
          });
     }         printVids(idArray);
-});
+ });
     };
-};
-
-function publishYoutube(youtubeArray) {
+ };
+ 
+ function publishYoutube(youtubeArray) {
    return youtubeArray.map(function(cur, index) {
     $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
-});
-};
-getYoutubeTrailer(getValue());
-
-//////////////////////////////////////////////////////
-//Following is for youtube reviews
-
-function getYoutubeReview(movieTitle) {
+ });
+ };
+ getYoutubeTrailer(getValue());
+ 
+ //////////////////////////////////////////////////////
+ //Following is for youtube reviews
+ 
+ function getYoutubeReview(movieTitle) {
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
     function(response) {
-        console.log(response.items)
-        var idArray = []
+        console.log(response.items);
+        var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
         });
@@ -77,17 +76,16 @@ function getYoutubeReview(movieTitle) {
             return youtubeArray.map(function(cur, index) {
              $(`.review${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
          });
-    }         
+    }
     printVids(idArray);
-});
-};
-
-function publishYoutube(youtubeArray) {
+ });
+ };
+ 
+ function publishYoutube(youtubeArray) {
    return youtubeArray.map(function(cur, index) {
     $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
-});
-};
-getYoutubeReview(movieTitle);
-
+ });
+ };
+ getYoutubeReview(movieTitle);
 
 
