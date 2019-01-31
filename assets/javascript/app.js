@@ -36,9 +36,9 @@ $('#forms').on('submit', function() {
  //following are for youtube movie trailers
  function getYoutubeTrailer(movieTitle) {
     if (movieTitle !== undefined) {
+        console.log(movieTitle)
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
     function(response) {
-        console.log(response.items);
         var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
@@ -53,20 +53,14 @@ $('#forms').on('submit', function() {
     };
  };
  
- function publishYoutube(youtubeArray) {
-   return youtubeArray.map(function(cur, index) {
-    $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
- });
- };
- getYoutubeTrailer(getValue());
- 
  //////////////////////////////////////////////////////
  //Following is for youtube reviews
  
  function getYoutubeReview(movieTitle) {
+    if (movieTitle !== undefined) {
+        console.log(movieTitle)
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
     function(response) {
-        console.log(response.items);
         var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
@@ -80,12 +74,7 @@ $('#forms').on('submit', function() {
     printVids(idArray);
  });
  };
+};
  
- function publishYoutube(youtubeArray) {
-   return youtubeArray.map(function(cur, index) {
-    $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
- });
- };
- getYoutubeReview(movieTitle);
 
 
