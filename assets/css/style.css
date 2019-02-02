@@ -99,9 +99,7 @@ header{
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
 }
-.iframe0 ,.iframe1 ,.iframe2{
-  box-shadow: 5px 10px 20px red inset;
-}
+
 .footer {
   padding: 30px 0;
   clear: both;
