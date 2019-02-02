@@ -15,13 +15,20 @@
 var apiKey = 'AIzaSyB-pKJ6btQcbXMH37vUnWAloDTfS4gb7WU'
 
 $('#forms').on('submit', function() {
-    $('.vid-header-none').toggleClass('vid-header-display')
-    $('.vid-header-display').toggleClass('vid-header-none')
     event.preventDefault();
+    showHeaders();
     getmoviePoster(getValue());
     getYoutubeTrailer(getValue());
     getYoutubeReview(getValue());
  });
+
+
+ function showHeaders() {
+     if ($('#trailer-head').hasClass('vid-header-none')) {
+    $('.vid-header-none').addClass('vid-header-display')
+    $('.vid-header-display').removeClass('vid-header-none')
+     }
+ }
  
  
  function getValue() {
