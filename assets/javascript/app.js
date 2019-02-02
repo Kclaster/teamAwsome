@@ -1,4 +1,8 @@
+var apiKey = 'AIzaSyB-pKJ6btQcbXMH37vUnWAloDTfS4gb7WU'
+
 $('#forms').on('submit', function() {
+    $('.vid-header-none').toggleClass('vid-header-display')
+    $('.vid-header-display').toggleClass('vid-header-none')
     event.preventDefault();
     getmoviePoster(getValue());
     getYoutubeTrailer(getValue());
@@ -30,14 +34,13 @@ $('#forms').on('submit', function() {
  
  
  /// The following are for youtube api
- var apiKey = 'AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8';
  
  ////////////////////////////////////////////////////
  //following are for youtube movie trailers
  function getYoutubeTrailer(movieTitle) {
     if (movieTitle !== undefined) {
-        console.log(movieTitle)
-    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
+        console.log(apiKey)
+    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=${apiKey}`,
     function(response) {
         var idArray = [];
         response.items.forEach(function(cur) {
@@ -59,7 +62,7 @@ $('#forms').on('submit', function() {
  function getYoutubeReview(movieTitle) {
     if (movieTitle !== undefined) {
         console.log(movieTitle)
-    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
+    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=${apiKey}`,
     function(response) {
         var idArray = [];
         response.items.forEach(function(cur) {
