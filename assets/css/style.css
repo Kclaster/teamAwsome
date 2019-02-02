@@ -97,7 +97,7 @@ form {
 }
 
 header{
-  
+  display: flex;
   margin: 0 45% 6vh 0;
   background-color: rgb(88, 86, 86);
   width: 100%;
@@ -122,6 +122,8 @@ header{
   color:white;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 90px;
+  width: 50px;
+  
 }
 .navbar sticky-top navbar-light bg-light {
   display: inline;
@@ -153,6 +155,7 @@ header{
 }
 
 .youtube-printout {
+  align-self: flex-start;
   display: flex;
   width: 70%;
   align-self: flex-start;
