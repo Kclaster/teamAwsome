@@ -1,8 +1,33 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAv0U7iV_Zq2WevvNIoY2fEM4SfPzrdpAo",
+    authDomain: "movie-app-7ce73.firebaseapp.com",
+    databaseURL: "https://movie-app-7ce73.firebaseio.com",
+    projectId: "movie-app-7ce73",
+    storageBucket: "movie-app-7ce73.appspot.com",
+    messagingSenderId: "1044560573437"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+  
+
+var apiKey = 'AIzaSyB-pKJ6btQcbXMH37vUnWAloDTfS4gb7WU'
+
 $('#forms').on('submit', function() {
+    $('.vid-header-none').toggleClass('vid-header-display')
+    $('.vid-header-display').toggleClass('vid-header-none')
     event.preventDefault();
     getmoviePoster(getValue());
     getYoutubeTrailer(getValue());
     getYoutubeReview(getValue());
+
+    var userData = movieTitle;
+
+    database.ref().push(userData);
+
+    console.log(userData);
+
  });
  
  
@@ -18,7 +43,7 @@ $('#forms').on('submit', function() {
     if (movieTitle !== undefined) {
     $.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=fcc96c64`,
     function(response) {
-        console.log(response.Poster)
+    //    console.log(response.Poster)
         $('#theImg').attr('src', response.Poster)
     })
     };
@@ -30,21 +55,20 @@ $('#forms').on('submit', function() {
  
  
  /// The following are for youtube api
- var apiKey = 'AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8';
  
  ////////////////////////////////////////////////////
  //following are for youtube movie trailers
  function getYoutubeTrailer(movieTitle) {
     if (movieTitle !== undefined) {
-        console.log(movieTitle)
-    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
+    //    console.log(apiKey)
+    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=${apiKey}`,
     function(response) {
         var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
         });
         function printVids(youtubeArray){
-            console.log('akuna');
+    //        console.log('akuna');
             return youtubeArray.map(function(cur, index) {
              $(`.iframe${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
          });
@@ -58,15 +82,15 @@ $('#forms').on('submit', function() {
  
  function getYoutubeReview(movieTitle) {
     if (movieTitle !== undefined) {
-        console.log(movieTitle)
-    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8`,
+    //    console.log(movieTitle)
+    $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} review&key=${apiKey}`,
     function(response) {
         var idArray = [];
         response.items.forEach(function(cur) {
             idArray.push(cur.id.videoId);
         });
         function printVids(youtubeArray){
-            console.log('akuna');
+    //        console.log('akuna');
             return youtubeArray.map(function(cur, index) {
              $(`.review${index}`).attr('src', `https://www.youtube.com/embed/${cur}`)
          });
