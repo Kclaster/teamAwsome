@@ -1,3 +1,17 @@
+
+  var config = {
+    apiKey: "AIzaSyAdTL9AEZb28jI9h2vFCq6awHGkVToQNWw",
+    authDomain: "team-awsome-b9873.firebaseapp.com",
+    databaseURL: "https://team-awsome-b9873.firebaseio.com",
+    projectId: "team-awsome-b9873",
+    storageBucket: "",
+    messagingSenderId: "855994626372"
+  };
+  firebase.initializeApp(config);
+
+
+
+
 var apiKey = 'AIzaSyB-pKJ6btQcbXMH37vUnWAloDTfS4gb7WU'
 
 $('#forms').on('submit', function() {
