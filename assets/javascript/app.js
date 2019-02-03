@@ -22,13 +22,13 @@ $('#forms').on('submit', function() {
     getYoutubeReview(getValue());
  });
 
-
  function showHeaders() {
-     if ($('#trailer-head').hasClass('vid-header-none')) {
-    $('.vid-header-none').addClass('vid-header-display')
-    $('.vid-header-display').removeClass('vid-header-none')
-     }
- }
+    if ($('#trailer-head').hasClass('vid-header-none')) {
+   $('.vid-header-none').addClass('vid-header-display')
+   $('.vid-header-display').removeClass('vid-header-none')
+    }
+}
+
  
  
  function getValue() {
@@ -43,8 +43,11 @@ $('#forms').on('submit', function() {
     if (movieTitle !== undefined) {
     $.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=fcc96c64`,
     function(response) {
-        console.log(response.Poster)
+        console.log(response)
         $('#theImg').attr('src', response.Poster)
+        if (response.Metascore !== undefined) {
+        $('#scoreNum').text(`Rating: ${response.Metascore}`)
+        };
     })
     };
  }
@@ -61,6 +64,15 @@ $('#forms').on('submit', function() {
  function getYoutubeTrailer(movieTitle) {
     if (movieTitle !== undefined) {
         console.log(apiKey)
+        jQuery.ajaxSetup({
+            beforeSend: function() {
+               $('#loader').show();
+            },
+            complete: function(){
+               $('#loader').hide();
+            },
+            success: function() {}
+          });   
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=${apiKey}`,
     function(response) {
         var idArray = [];
