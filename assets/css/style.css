@@ -72,6 +72,21 @@ form {
  font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+
+#loader {
+  display: none;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.loading-text {
+  text-align: center;
+}
+
   .btn-primary 
   {
     font-size:15px;
