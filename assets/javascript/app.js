@@ -43,8 +43,11 @@ $('#forms').on('submit', function() {
     if (movieTitle !== undefined) {
     $.get(`https://www.omdbapi.com/?t=${movieTitle}&apikey=fcc96c64`,
     function(response) {
-        console.log(response.Poster)
+        console.log(response)
         $('#theImg').attr('src', response.Poster)
+        if (response.Metascore !== undefined) {
+        $('#scoreNum').text(`Rating: ${response.Metascore}`)
+        };
     })
     };
  }
