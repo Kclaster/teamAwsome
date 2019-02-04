@@ -72,6 +72,21 @@ form {
  font-family: Georgia, 'Times New Roman', Times, serif;
 
 }
+
+#loader {
+  display: none;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.loading-text {
+  text-align: center;
+}
+
   .btn-primary 
   {
     font-size:15px;
@@ -134,6 +149,21 @@ header{
   color: rgb(88, 86, 86);
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 20px;
+}
+
+#score {
+  position: relative;
+  top: -40px;
+  left: 240px;
+  font-size:15px;
+  text-align: center;
+  width:80px; 
+  height:40px;
+  color:white;
+  background: rgb(88, 86, 86);
+  border: 1px solid;
+  border-color: rgb(88, 86, 86);
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .footer {
