@@ -12,7 +12,7 @@
 
 
 //cin4 key: AIzaSyC9wRterwbUeNH8vwmGo8VpKfTtb2Xc_Q8
-var apiKey = 'AIzaSyDuFndi-7erqfvwZQupd9SVfnqlSQYQdXg'
+var apiKey = 'AIzaSyDfh0vTr9C2bILx8r9o3PAkO_87tXlmBu8'
 
 $('#forms').on('submit', function() {
     event.preventDefault();
@@ -68,9 +68,9 @@ $('#forms').on('submit', function() {
             beforeSend: function() {
                $('#loader').show();
             },
-            complete: function(){
-               $('#loader').hide();
-            },
+            complete: function(){                
+                $('#loader').hide();
+        },
             success: function() {}
           });   
     $.get(`https://www.googleapis.com/youtube/v3/search?maxResults=25&part=snippet&q=${movieTitle} trailer&key=${apiKey}`,
